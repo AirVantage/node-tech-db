@@ -1,0 +1,16 @@
+{
+    "name": "node-tech-db",
+    "version": "1.0.0",
+    "description": "Technical component to abstract db usage",
+    "main": "techDb.js",
+    "dependencies": {
+        "bluebird": "^2.3.2",
+        "mysql": "^2.3.2",
+        "node-tech-ruuid": "git@github.com:AirVantage/node-tech-ruuid.git#1.0.0",
+        "node-tech-time": "git@github.com:AirVantage/node-tech-time.git#1.0.0",
+        "sequelize": "^1.7.10",
+        "shimmer": "^1.0.0",
+        "sqlite3": "^2.2.3",
+        "underscore": "^1.7.0"
+    }
+}
