@@ -3,7 +3,7 @@ var events = require("events");
 var Sequelize = require("sequelize");
 var wrapSql = require("./lib/wrapSql");
 
-module.exports = function(configuration, logger) {
+module.exports = function(configuration) {
 
     var emitter = new events.EventEmitter();
 
@@ -24,8 +24,7 @@ module.exports = function(configuration, logger) {
             var wrapper = wrapSql({
                 sequelize: sequelize,
                 entityName: entityName,
-                emitter: emitter,
-                logger: logger
+                emitter: emitter
             });
 
             return {
