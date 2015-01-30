@@ -1,4 +1,3 @@
-var _ = require("underscore");
 var events = require("events");
 var Sequelize = require("sequelize");
 var wrapSql = require("./lib/wrapSql");
