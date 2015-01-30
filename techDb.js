@@ -1,6 +1,6 @@
-var _ = require("underscore");
 var events = require("events");
 var Sequelize = require("sequelize");
+var Migration = require("./lib/migration");
 var wrapSql = require("./lib/wrapSql");
 
 module.exports = function(configuration) {
@@ -13,11 +13,19 @@ module.exports = function(configuration) {
         configuration.db.connection.password,
         configuration.db.connection.options);
 
+    var migration = new Migration({
+        sequelize: sequelize,
+        Sequelize: Sequelize,
+        config: configuration.db.migration
+    });
+
     return {
         // The DB instance
         sequelize: sequelize,
         // The library that could be used to get all available DataTypes
         Sequelize: Sequelize,
+        // Instance used to migrate the database
+        migration: migration,
 
         dao: function(entityName) {
 

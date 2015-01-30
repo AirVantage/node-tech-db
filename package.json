@@ -16,6 +16,7 @@
         "sequelize": "git://github.com/sequelize/sequelize.git#v2.0.0-rc8",
         "shimmer": "^1.0.0",
         "sqlite3": "^2.2.3",
-        "underscore": "^1.7.0"
+        "underscore": "^1.7.0",
+        "umzug": "^1.3.0"
     }
 }
