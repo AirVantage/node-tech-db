@@ -11,9 +11,10 @@
     "dependencies": {
         "lodash": "^3.0.1",
         "mysql": "^2.3.2",
-        "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.0.0",
+        "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.1.0",
         "node-tech-ruuid": "git://github.com/AirVantage/node-tech-ruuid.git#1.0.0",
         "node-tech-time": "git://github.com/AirVantage/node-tech-time.git#1.0.0",
-        "sequelize": "^1.7.10"
+        "sequelize": "^2.0.0-rc8",
+        "umzug": "^1.3.0"
     }
 }
