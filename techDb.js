@@ -2,6 +2,7 @@ var events = require("events");
 var Sequelize = require("sequelize");
 var Migration = require("./lib/migration");
 var wrapSql = require("./lib/wrapSql");
+var LockService = require("./lib/lockService");
 
 module.exports = function(configuration) {
 
@@ -13,9 +14,15 @@ module.exports = function(configuration) {
         configuration.db.connection.password,
         configuration.db.connection.options);
 
+    var lockService = new LockService({
+        sequelize: sequelize,
+        Sequelize: Sequelize
+    });
+
     var migration = new Migration({
         sequelize: sequelize,
         Sequelize: Sequelize,
+        lockService: lockService,
         config: configuration.db.migration
     });
 
@@ -26,6 +33,8 @@ module.exports = function(configuration) {
         Sequelize: Sequelize,
         // Instance used to migrate the database
         migration: migration,
+        // Lock service
+        lockService: lockService,
 
         dao: function(entityName) {
 
