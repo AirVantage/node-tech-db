@@ -2,6 +2,7 @@
     "name": "node-tech-db",
     "version": "1.0.0",
     "description": "Technical component to abstract db usage",
+    "license": "MIT",
     "main": "techDb.js",
     "repository": {
         "type": "git",
