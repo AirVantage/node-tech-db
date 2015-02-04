@@ -12,7 +12,7 @@
         "bluebird": "^2.3.11",
         "lodash": "^3.0.1",
         "mysql": "^2.3.2",
-        "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.2.0",
+        "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#2.0.0",
         "node-tech-ruuid": "git://github.com/AirVantage/node-tech-ruuid.git#1.0.0",
         "node-tech-time": "git://github.com/AirVantage/node-tech-time.git#1.0.0",
         "redefine": "^0.2.0",
