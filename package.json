@@ -9,8 +9,8 @@
     "url": "https://github.com/AirVantage/node-tech-db.git"
   },
   "dependencies": {
-    "bluebird": "^2.3.11",
-    "lodash": "^3.0.1",
+    "bluebird": "^2.9.9",
+    "lodash": "^3.2.0",
     "mysql": "^2.3.2",
     "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#2.x",
     "node-tech-ruuid": "git://github.com/AirVantage/node-tech-ruuid.git#1.x",
