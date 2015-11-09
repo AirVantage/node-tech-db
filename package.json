@@ -1,6 +1,6 @@
 {
   "name": "node-tech-db",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "description": "Technical component to abstract db usage",
   "license": "MIT",
   "main": "techDb.js",
