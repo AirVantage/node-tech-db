@@ -1,47 +1,40 @@
-var events = require('events');
-var Sequelize = require('sequelize');
-var migration = require('./lib/migration');
-var wrapSql = require('./lib/wrapSql');
-var lockService = require('./lib/lockService');
+const events = require('events');
+const Sequelize = require('sequelize');
+const migration = require('./lib/migration');
+const wrapSql = require('./lib/wrapSql');
+const lockService = require('./lib/lockService');
 
-module.exports = function(configuration) {
-  var emitter = new events.EventEmitter();
+module.exports = configuration => {
+  const emitter = new events.EventEmitter();
 
-  var sequelize = new Sequelize(
+  const sequelize = new Sequelize(
     configuration.db.connection.database,
     configuration.db.connection.username,
     configuration.db.connection.password,
     configuration.db.connection.options
   );
 
-  var lockServiceInstance = lockService({
-    sequelize: sequelize,
-    Sequelize: Sequelize
-  });
+  const lockServiceInstance = lockService({ sequelize, Sequelize });
 
-  var migrationInstance = migration({
-    sequelize: sequelize,
-    Sequelize: Sequelize,
+  const migrationInstance = migration({
+    sequelize,
+    Sequelize,
     lockService: lockServiceInstance,
     config: configuration.db.migration
   });
 
   return {
     // The DB instance
-    sequelize: sequelize,
+    sequelize,
     // The library that could be used to get all available DataTypes
-    Sequelize: Sequelize,
+    Sequelize,
     // Instance used to migrate the database
     migration: migrationInstance,
     // Lock service
     lockService: lockServiceInstance,
 
-    dao: function(entityName) {
-      var wrapper = wrapSql({
-        sequelize: sequelize,
-        entityName: entityName,
-        emitter: emitter
-      });
+    dao: entityName => {
+      const wrapper = wrapSql({ sequelize, entityName, emitter });
 
       return {
         find: wrapper.wrapByName('find', 'Read'),
