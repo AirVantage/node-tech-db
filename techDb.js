@@ -1,12 +1,9 @@
-const events = require('events');
 const Sequelize = require('sequelize');
 const migration = require('./lib/migration');
 const wrapSql = require('./lib/wrapSql');
 const lockService = require('./lib/lockService');
 
 module.exports = configuration => {
-  const emitter = new events.EventEmitter();
-
   const sequelize = new Sequelize(
     configuration.db.connection.database,
     configuration.db.connection.username,
@@ -34,7 +31,7 @@ module.exports = configuration => {
     lockService: lockServiceInstance,
 
     dao: entityName => {
-      const wrapper = wrapSql({ sequelize, entityName, emitter });
+      const wrapper = wrapSql({ sequelize, entityName });
 
       return {
         find: wrapper.wrapByName('find', 'Read'),
@@ -45,7 +42,6 @@ module.exports = configuration => {
         destroy: wrapper.wrapByName('destroy', 'Delete'),
         update: wrapper.wrapUpdate()
       };
-    },
-    on: emitter.on.bind(emitter)
+    }
   };
 };
