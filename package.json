@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "bluebird": "^2.9.9",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mysql": "^2.3.2",
     "redefine": "^0.2.0",
     "sequelize": "3.13.0",
